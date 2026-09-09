@@ -1,12 +1,18 @@
 import { useContext } from 'react'
-import { CartContext } from '../context/CartContext'
+import { CartActionsContext, CartStateContext } from '../context/CartContext'
 
-export const useCart = () => {
-  const context = useContext(CartContext)
+const useCartContext = (context, hookName) => {
+  const value = useContext(context)
 
-  if (!context) {
-    throw new Error('useCart must be used inside a CartProvider')
+  if (!value) {
+    throw new Error(`${hookName} must be used inside a CartProvider`)
   }
 
-  return context
+  return value
 }
+
+/** Read cart data. Re-renders when the cart changes. */
+export const useCartState = () => useCartContext(CartStateContext, 'useCartState')
+
+/** Dispatch cart actions. Never re-renders when the cart changes. */
+export const useCartActions = () => useCartContext(CartActionsContext, 'useCartActions')

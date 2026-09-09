@@ -1,9 +1,9 @@
 import { Link } from 'react-router'
-import { useCart } from '../hooks/useCart'
+import { useCartActions } from '../hooks/useCart'
 import { formatPrice } from '../utils/format'
 
 export const CartItem = ({ item }) => {
-  const { updateQuantity, removeItem } = useCart()
+  const { updateQuantity, removeItem } = useCartActions()
 
   return (
     <li className="flex gap-4 rounded-2xl border border-stone-200 bg-white p-4">

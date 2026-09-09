@@ -2,12 +2,13 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { CheckoutForm } from '../components/CheckoutForm'
 import { Message } from '../components/Message'
-import { useCart } from '../hooks/useCart'
+import { useCartActions, useCartState } from '../hooks/useCart'
 import { OutOfStockError, createOrder } from '../services/orders.service'
 import { formatPrice } from '../utils/format'
 
 export const CheckoutContainer = () => {
-  const { items, totalPrice, clearCart } = useCart()
+  const { items, totalPrice } = useCartState()
+  const { clearCart } = useCartActions()
   const navigate = useNavigate()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState(null)

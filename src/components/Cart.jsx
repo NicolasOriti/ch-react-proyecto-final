@@ -1,11 +1,12 @@
 import { Link } from 'react-router'
 import { CartItem } from './CartItem'
 import { Message } from './Message'
-import { useCart } from '../hooks/useCart'
+import { useCartActions, useCartState } from '../hooks/useCart'
 import { formatPrice } from '../utils/format'
 
 export const Cart = () => {
-  const { items, totalPrice, totalQuantity, clearCart } = useCart()
+  const { items, totalPrice, totalQuantity } = useCartState()
+  const { clearCart } = useCartActions()
 
   if (items.length === 0) {
     return (

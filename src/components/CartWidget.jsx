@@ -1,8 +1,8 @@
 import { Link } from 'react-router'
-import { useCart } from '../hooks/useCart'
+import { useCartState } from '../hooks/useCart'
 
 export const CartWidget = () => {
-  const { totalQuantity } = useCart()
+  const { totalQuantity } = useCartState()
 
   return (
     <Link
