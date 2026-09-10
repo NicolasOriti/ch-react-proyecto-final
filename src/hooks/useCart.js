@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { CartActionsContext, CartStateContext } from '../context/CartContext'
+import { CartActionsContext, CartStateContext } from '../context/cart/CartContext'
 
 const useCartContext = (context, hookName) => {
   const value = useContext(context)
